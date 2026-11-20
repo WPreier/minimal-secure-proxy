@@ -1,0 +1,20 @@
+# Example configuration (illustrative)
+
+[server]
+listen = ["0.0.0.0:443", "[::]:443"]
+http_redirect = true
+max_connections = 200
+
+[acme]
+email = "admin@example.com"
+provider = "letsencrypt"
+# dns providers: cloudflare, bind, manual
+
+[[location]]
+match = "^/api/"
+upstream = "backend1"
+
+[upstreams.backend1]
+addresses = ["127.0.0.1:8080"]
+timeouts.connect = "2s"
+max_retries = 1
