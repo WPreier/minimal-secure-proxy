@@ -6,41 +6,21 @@ A minimal, highly secure reverse proxy and static content server written in Rust
 
 ## Status
 
-**Early development / specification phase.** This repository currently contains the complete requirements, architecture design, documentation structure, and a project skeleton. Full implementation is ongoing.
-
-## Key Design Principles
-
-- Memory-safe by default (Rust)
-- Minimal external dependencies
-- Fail-closed configuration
-- No root after startup (chroot + privilege drop)
-- Strict resource limits (connections, memory, queues, threads)
-- Non-blocking logging and monitoring
-- Built-in ACME with DNS-01 (Cloudflare + BIND/nsupdate + manual)
-- Config reload without restart
-- Nginx-compatible logging
-
-## Quick Start (planned)
-
-```bash
-# After implementation
-cargo build --release
-./target/release/msp --config /etc/msp/config.toml
-```
+**Specification & design phase.**  
+The repository contains the complete requirements, architecture notes, security and operations ideas, and a project skeleton. Implementation will start after further review and refinement of the documentation.
 
 ## Documentation
 
 - [Requirements](docs/REQUIREMENTS.md)
 - [Architecture](docs/ARCHITECTURE.md)
-- [Configuration](docs/CONFIGURATION.md)
-- [Installation & Operation](docs/INSTALLATION.md)
-- [ACME & DNS-01](docs/ACME.md)
-- [Security Model](docs/SECURITY.md)
-- [Monitoring & Debugging](docs/MONITORING.md)
+- [Security Model & Hardening](docs/SECURITY.md)
+- [Operations & Monitoring](docs/OPERATIONS.md)
+- [Additional Ideas (open for refinement)](docs/IDEAS.md)
+- [Configuration examples](examples/config.toml)
 
-## Versioning
+## Versioning & Releases
 
-Semantic versioning with patch numbers. Built-in version check on startup warns about newer releases (display only).
+Semantic versioning. Built-in version check on startup warns about newer releases (display only, no automatic action).
 
 ## License
 
