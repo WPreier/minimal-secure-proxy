@@ -1,28 +1,35 @@
-# SeDat
+# SeDat & Seda
 
-**SeDat** (türkisch: „der Rechtschaffene“) – ein minimaler, hoch sicherer Reverse-Proxy und Static-Content-Server in Rust.
+**SeDat** (türkisch: „der Rechtschaffene“) – minimaler, hoch sicherer Reverse-Proxy und Static-Content-Server in Rust.
 
-**Ziel:** Statische Inhalte (von internen Upstreams) mit kleinster Angriffsfläche, strikten Ressourcenlimits, eingebautem ACME (inkl. DNS-01), HTTP/1.1 + HTTP/2 + HTTP/3, Privilege Drop und non-blocking Betrieb ausliefern.
+**Seda** (türkisch/persisch: Echo / Stimme) – der zugehörige Proxy-Client für rein statische HTML-Seiten, die ausschließlich aus dem Speicher ausgeliefert werden.
+
+Beide Projekte teilen denselben Sicherheits-, Betriebs- und Dokumentationsanspruch.
 
 ## Status
 
-**Spezifikations- und Designphase.**  
-Das Repository enthält die vollständigen Anforderungen, Architektur-Notizen, Security- und Betriebsideen sowie ein Projektskelett. Die Implementierung startet nach weiterer Überarbeitung der Dokumentation.
+**Spezifikationsphase.** Vollständige Anforderungen für Code-Generierung durch andere KIs sind vorhanden.
 
 ## Dokumentation
 
+### SeDat (Server)
 - [Requirements](docs/REQUIREMENTS.md)
 - [Architecture](docs/ARCHITECTURE.md)
-- [Security Model & Hardening](docs/SECURITY.md)
-- [Operations & Monitoring](docs/OPERATIONS.md)
+- [Security](docs/SECURITY.md)
+- [Operations](docs/OPERATIONS.md)
 - [Config & Lifecycle](docs/CONFIG.md)
-- [Additional Ideas](docs/IDEAS.md)
-- [Configuration examples](examples/config.toml)
+- [Ideas](docs/IDEAS.md)
+
+### Seda (Client)
+- [Seda Requirements](docs/SEDA_REQUIREMENTS.md)
+- [Seda Architecture](docs/SEDA_ARCHITECTURE.md)
+- [Seda Config](docs/SEDA_CONFIG.md)
+- [Seda Security & Operations](docs/SEDA_SECURITY_OPS.md)
+
+## Eingebaute Dokumentation
+
+Beide Binaries enthalten die vollständige Dokumentation und können sie unter `/sedat` bzw. `/seda` ausliefern (konfigurierbar, Standard: aktiv).
 
 ## Versionierung
 
-Semantic Versioning. Eingebaute Versionsprüfung beim Start warnt vor neueren Releases (nur Anzeige, keine automatische Aktion).
-
-## Lizenz
-
-MIT oder Apache-2.0 (noch zu entscheiden)
+Semantic Versioning. Versionsprüfung beim Start (nur Warnung).

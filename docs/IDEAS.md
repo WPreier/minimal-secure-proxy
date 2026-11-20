@@ -1,29 +1,18 @@
-# Additional Ideas & Open Points (for iterative refinement)
+# Additional Ideas & Open Points
 
-## Config & Lifecycle (neu)
-- Versteckte aktive Config-Kopie
-- `--resetconfig`
-- Fehler mit Zeile + Grund, alte Config bleibt aktiv
-- Regex auf alle Client-Felder
-- Eingebettete 404-Seite
+## SeDat + Seda gemeinsam
 
-## Security
-- Landlock + seccomp nach Privilege Drop
-- Quarantine-Modus bei verdächtigen Mustern
-- Memory/FD-Pressure-Handling
-- Zertifikats-Backup / Fallback-Zertifikat
-- Request-ID durch den gesamten Pfad
+- Beide Binaries enthalten die Dokumentation des jeweils anderen.
+- Gemeinsame Config-Philosophie (versteckte Kopie, Fail-Closed, Zeilenfehler).
+- Gemeinsames Logging-Format.
+- Optionale gemeinsame Admin-API.
 
-## Operations
-- Dry-Run / Check-Mode
-- Connection Draining bei Reload und Shutdown
-- Lightweight Upstream Health Checks
-- systemd Sandboxing-Direktiven
+## Seda-spezifisch
 
-## Weitere offene Punkte
-- Early Hints (103)
-- Mehrere Zertifikate pro Listener (SNI)
-- Log-Sampling
-- CT-Log-Überwachung (optional)
+- Eingebettete Seiten können zur Compile-Zeit aus einem `pages/`-Verzeichnis generiert werden.
+- Optionaler Build-Step, der die Markdown-Docs in HTML umwandelt.
+- Health-Endpoint `/health` (eingebettet).
 
-Diese Liste ist bewusst offen für weitere Überarbeitung vor Implementierungsstart.
+## Offen für weitere Überarbeitung
+
+Diese Spezifikation ist bewusst so geschrieben, dass andere KIs (Cursor, Claude, GPT, etc.) daraus direkt Code generieren können.
