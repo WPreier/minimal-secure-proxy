@@ -1,27 +1,28 @@
-# Minimal Secure Proxy (MSP)
+# SeDat
 
-A minimal, highly secure reverse proxy and static content server written in Rust.
+**SeDat** (türkisch: „der Rechtschaffene“) – ein minimaler, hoch sicherer Reverse-Proxy und Static-Content-Server in Rust.
 
-**Goal**: Serve static content (proxied from internal upstreams) with the smallest possible attack surface, strict resource limits, built-in ACME (including DNS-01), HTTP/1.1 + HTTP/2 + HTTP/3, privilege dropping, and non-blocking operation.
+**Ziel:** Statische Inhalte (von internen Upstreams) mit kleinster Angriffsfläche, strikten Ressourcenlimits, eingebautem ACME (inkl. DNS-01), HTTP/1.1 + HTTP/2 + HTTP/3, Privilege Drop und non-blocking Betrieb ausliefern.
 
 ## Status
 
-**Specification & design phase.**  
-The repository contains the complete requirements, architecture notes, security and operations ideas, and a project skeleton. Implementation will start after further review and refinement of the documentation.
+**Spezifikations- und Designphase.**  
+Das Repository enthält die vollständigen Anforderungen, Architektur-Notizen, Security- und Betriebsideen sowie ein Projektskelett. Die Implementierung startet nach weiterer Überarbeitung der Dokumentation.
 
-## Documentation
+## Dokumentation
 
 - [Requirements](docs/REQUIREMENTS.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Security Model & Hardening](docs/SECURITY.md)
 - [Operations & Monitoring](docs/OPERATIONS.md)
-- [Additional Ideas (open for refinement)](docs/IDEAS.md)
+- [Config & Lifecycle](docs/CONFIG.md)
+- [Additional Ideas](docs/IDEAS.md)
 - [Configuration examples](examples/config.toml)
 
-## Versioning & Releases
+## Versionierung
 
-Semantic versioning. Built-in version check on startup warns about newer releases (display only, no automatic action).
+Semantic Versioning. Eingebaute Versionsprüfung beim Start warnt vor neueren Releases (nur Anzeige, keine automatische Aktion).
 
-## License
+## Lizenz
 
-MIT or Apache-2.0 (to be decided)
+MIT oder Apache-2.0 (noch zu entscheiden)

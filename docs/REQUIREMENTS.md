@@ -1,38 +1,34 @@
-# Requirements – Minimal Secure Proxy
+# Requirements – SeDat
 
-See the conversation history for the full iterative requirements. This document consolidates them.
+## Namensgebung
+SeDat (türkisch: „der Rechtschaffene“)
 
-## Core
-- Reverse proxy for static content from internal upstreams
+## Kern
+- Reverse Proxy für statische Inhalte von internen Upstreams
 - HTTP/1.1, HTTP/2, HTTP/3 (QUIC)
 - TLS 1.3 only
-- Built-in ACME (no external ACME library for the core flow)
-- DNS-01 mandatory (Cloudflare + BIND + manual + generic hook)
-- ARI support if offered by provider
-- Multiple backends with precompiled regex location matching
-- Config reload without restart
-- Dual-stack IPv4/IPv6
-- Nginx-compatible access + error logs (non-blocking)
-- Rate limiting, finite queues, hard resource limits
-- chroot + privilege drop, refuse to start as root
-- Admin Unix socket / Named Pipe for status + reload
-- systemd notify + watchdog
-- gzip + brotli with strict limits and bomb protection
-- Header filtering (whitelist / strip risky headers)
+- Eingebaute ACME-Implementierung (kein externes ACME-Crate für den Kern-Flow)
+- DNS-01 Pflicht (Cloudflare + BIND/nsupdate + manuell + generischer Hook)
+- ARI-Unterstützung wenn vom Provider angeboten
+- Mehrere Backends mit vorab kompilierten Regex auf alle Client-Felder
+- Config-Reload ohne Restart, Fail-Closed mit Zeilenangabe
+- Aktive Config = versteckte Kopie; `--resetconfig` zum expliziten Zurücksetzen
+- Dual-Stack IPv4/IPv6
+- Nginx-kompatibles Access- und Error-Log (non-blocking)
+- Rate-Limiting, endliche Queues, harte Ressourcenlimits
+- chroot + Privilege Drop, kein Start als root
+- Admin-Socket für Status + Reload
+- systemd notify + Watchdog
+- gzip + brotli mit strikten Limits und Bomb-Schutz
+- Header-Filterung
 - PROXY Protocol v1 + v2
-- Alt-Svc for HTTP/3
-- Max 5 concurrent ACME renewals
-- Version check on startup (warn only)
+- Alt-Svc für HTTP/3
+- Max. 5 gleichzeitige ACME-Renewals
+- Eingebettete 404-Seite (kein externes File) als Fallback
+- Versionsprüfung beim Start (nur Warnung)
 
-## ACME Providers (minimum)
+## ACME-Provider (Minimum)
 - Let's Encrypt
 - ZeroSSL
 - Google Trust Services
-- Custom RFC 8555 directory
-
-## Security Priorities
-- Memory safety
-- Resource exhaustion resistance
-- Request smuggling / desync protection
-- Upstream response validation
-- Non-blocking everything critical
+- Custom RFC-8555 Directory

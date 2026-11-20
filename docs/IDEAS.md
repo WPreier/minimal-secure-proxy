@@ -1,32 +1,29 @@
 # Additional Ideas & Open Points (for iterative refinement)
 
+## Config & Lifecycle (neu)
+- Versteckte aktive Config-Kopie
+- `--resetconfig`
+- Fehler mit Zeile + Grund, alte Config bleibt aktiv
+- Regex auf alle Client-Felder
+- Eingebettete 404-Seite
+
 ## Security
-- Landlock + seccomp combination after drop.
-- Optional request fingerprinting resistance or deliberate TLS fingerprint.
-- Content-Integrity checks or SRI header injection.
-- Strict PROXY Protocol validation.
-
-## Performance & Protocols
-- Early Hints (103) support.
-- Explicit non-support of HTTP/2 Server Push.
-- Configurable Alt-Svc max-age.
-- IPv6 Happy Eyeballs on upstream side.
-
-## Observability
-- Request-ID in all logs and upstream headers.
-- Latency histograms in admin metrics.
-- Log sampling under high load.
+- Landlock + seccomp nach Privilege Drop
+- Quarantine-Modus bei verdächtigen Mustern
+- Memory/FD-Pressure-Handling
+- Zertifikats-Backup / Fallback-Zertifikat
+- Request-ID durch den gesamten Pfad
 
 ## Operations
-- Multiple certificates per listener (SNI) with different ACME accounts/providers.
-- Optional CT log monitoring.
-- Graceful shutdown with connection draining.
-- Self-watchdog that exits cleanly on event-loop hang (for systemd restart).
+- Dry-Run / Check-Mode
+- Connection Draining bei Reload und Shutdown
+- Lightweight Upstream Health Checks
+- systemd Sandboxing-Direktiven
 
-## Documentation & Process
-- Step-by-step practical examples for every major feature.
-- Architecture diagrams.
-- Threat model document.
-- Upgrade and rollback procedures.
+## Weitere offene Punkte
+- Early Hints (103)
+- Mehrere Zertifikate pro Listener (SNI)
+- Log-Sampling
+- CT-Log-Überwachung (optional)
 
-These points are intentionally open for discussion and refinement before implementation starts.
+Diese Liste ist bewusst offen für weitere Überarbeitung vor Implementierungsstart.
